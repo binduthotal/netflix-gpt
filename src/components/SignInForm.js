@@ -1,27 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebaseConfig";
 
 const SignInForm = () => {
+    const navigate = useNavigate()
+    const email = useRef(null);
+    const password = useRef(null);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    const handleSignIn = () => {
+        signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                navigate("/browse");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrorMessage(errorCode + " " + errorMessage)
+                
+            });
+    };
     return (
-        // <div className="absolute mt-[10%] mx-[36%] text-center px-16 pb-5  bg-black bg-opacity-75">
-        // <div className="absolute top-[50%] left-1/2 transform -translate-x-[50%] -translate-y-[50%] px-10 pb-5 bg-black bg-opacity-75">
-        <div className="absolute w-3/12 my-36 mx-auto right-0 left-0 px-10 pb-5 bg-black bg-opacity-75">
-            <form className="grid gap-5">
-                <label className="text-white text-3xl font-bold text-left py-9">Sign In</label>
+        <div className="absolute lg:mt-36 mx-auto right-0 left-0 px-14 pb-5 bg-black bg-opacity-75 sm:mt-16 sm:mb-[50px] sm:py-12 sm:px-16 max-w-[450px] ">
+            <form className="grid gap-5" onSubmit={(e) => e.preventDefault()}>
+                <label className="text-white text-3xl font-bold text-left py-9">
+                    Sign In
+                </label>
                 <input
+                    ref={email}
                     type="email"
                     className="px-5 py-4 rounded-lg text-white bg-black bg-opacity-75 border border-solid border-gray-400"
-                    placeholder="Email or mobile number"
+                    placeholder="Email"
                 />
                 <input
+                    ref={password}
                     type="password"
                     className="px-5 py-4 rounded-lg text-white bg-black bg-opacity-75 border border-solid border-gray-400"
                     placeholder="Password"
                 />
-                <button className="bg-red-600 text-white font-semibold px-5 py-2 rounded-lg">
+                <p className="text-red-600 m-0 font-semibold text-lg text-left p-0">
+                    {errorMessage}
+                </p>
+                <button
+                    className="bg-red-600 text-white font-semibold px-5 py-2 rounded-lg"
+                    onClick={handleSignIn}
+                >
                     Sign In
                 </button>
-                <h1 className="text-white text-lg">OR</h1>
+                <h1 className="text-white text-lg text-center">OR</h1>
                 <button className="bg-gray-600 bg-opacity-65 text-white font-semibold px-5 py-2 rounded-lg">
                     Use a sign-in code
                 </button>
