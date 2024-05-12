@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 import { useSelector } from "react-redux";
 
 const BrowseHeader = () => {
-    const navigate = useNavigate();
     const displayName = useSelector((store) => store.user?.displayName);
 
 
@@ -13,7 +12,6 @@ const BrowseHeader = () => {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
-                navigate("/");
             })
             .catch((error) => {
                 // An error happened.

@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 
 const SignInForm = () => {
-    const navigate = useNavigate()
     const email = useRef(null);
     const password = useRef(null);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -14,7 +13,6 @@ const SignInForm = () => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                navigate("/browse");
             })
             .catch((error) => {
                 const errorCode = error.code;

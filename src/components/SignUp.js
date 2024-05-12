@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const SignUp = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [isSignupForm, setIsSignUpForm] = useState(false);
@@ -52,7 +51,6 @@ const SignUp = () => {
                                 displayName: displayName,
                             })
                         );
-                        navigate("/browse");
                     })
                     .catch((error) => {
                         // An error occurred
