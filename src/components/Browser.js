@@ -1,9 +1,28 @@
-import React from 'react';
+import React from "react";
+import Header from "./Header";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovie";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
+
 const Browser = () => {
+
+  useNowPlayingMovies();
+
+
   return (
-    <div className='relative bg-gray-950 w-full h-full'>
+    <div>
+      <Header />
+      <MainContainer />
+      <SecondaryContainer />
+      {/**
+       * Main Container
+       *    - Video BackGround
+       *    - Video Title
+       *    -Secondary Container
+       *
+       */}
     </div>
   );
-}
+};
 
 export default Browser;

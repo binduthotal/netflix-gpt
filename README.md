@@ -18,6 +18,16 @@
 - BugFix: Sign in user dispalyName and profile picture
 - BugFix: If user is not logged in Redirect /browse to Login page and Vice versa
 - Unsubsribed to the onAuthStateChange callback
+- Add urls to constants file
+- Registered for TMDB Api and get API key and access tokem
+- Go to TMDB documentation and get data from now Playing
+- created moviesSlice to store NowPlayingMovies
+- created custom Hook for now playing mogies
+- Update store with movies Data
+- Planning for main contaoner and secondary coontainer
+- fetch data for trailer video
+- update store with trailer video
+- embeded the youtube video and make it autoplay and mute
 
 # features
 - SignUp page

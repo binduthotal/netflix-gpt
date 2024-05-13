@@ -19,11 +19,11 @@ const Body = () => {
                     path: "/login",
                     element: <SignInForm />,
                 },
-                {
-                    path: "/browse",
-                    element: <Browser />,
-                },
             ],
+        },
+        {
+            path: "/browse",
+            element: <Browser />,
         },
     ]);
 
