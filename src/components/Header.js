@@ -54,7 +54,7 @@ const Header = () => {
       </div>
     </div>
   ) : (
-    <div className="absolute bg-gradient-to-br from-black w-full h-fit top-0 left-0 border-none ">
+    <div className="absolute bg-gradient-to-b from-black w-full h-fit top-0 left-0 border-none ">
       <div className="flex justify-between mx-16  items-center">
         <a href="/">
           <img className="w-40" src={LOGO_URL} alt="logo" />

@@ -3,24 +3,29 @@ import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovie";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import useTvArrivingTodat from "../hooks/useTvArrivingTodat";
+import useTVOnTheAir from "../hooks/useTVOnTheAir";
+import useTvPopular from "../hooks/useTvPopular";
+import useTvTopRated from "../hooks/useTvTopRated";
 
 const Browser = () => {
-
   useNowPlayingMovies();
-
+  usePopularMovies();
+  useTopRatedMovies();
+  useUpcomingMovies()
+  useTvArrivingTodat();
+  useTvPopular();
+  useTvTopRated();
+  useTVOnTheAir();
 
   return (
     <div>
       <Header />
       <MainContainer />
       <SecondaryContainer />
-      {/**
-       * Main Container
-       *    - Video BackGround
-       *    - Video Title
-       *    -Secondary Container
-       *
-       */}
     </div>
   );
 };

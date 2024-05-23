@@ -22,12 +22,15 @@
 - Registered for TMDB Api and get API key and access tokem
 - Go to TMDB documentation and get data from now Playing
 - created moviesSlice to store NowPlayingMovies
-- created custom Hook for now playing mogies
+- created custom Hook for now playing movies
 - Update store with movies Data
 - Planning for main contaoner and secondary coontainer
-- fetch data for trailer video
-- update store with trailer video
-- embeded the youtube video and make it autoplay and mute
+- fetch data for Trailer video by movie id
+- update store with trailer video in the same movieSlice
+- Embeded the youtube video and make it autoplay and mute
+- Created Secondary container which contains MovieList and MovieCard
+- Fteched TMDB API of popular, trending etc and build movies list in secondary container.
+- Tailwind to make Movie list looks good.
 
 # features
 - SignUp page

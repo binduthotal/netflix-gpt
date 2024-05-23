@@ -15,9 +15,10 @@ const SignInForm = () => {
                 const user = userCredential.user;
             })
             .catch((error) => {
+                console.log(auth.user);
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setErrorMessage(errorCode + " " + errorMessage)
+                setErrorMessage(errorMessage)
                 
             });
     };
@@ -39,7 +40,7 @@ const SignInForm = () => {
                     className="px-5 py-4 rounded-lg text-white bg-black bg-opacity-75 border border-solid border-gray-400"
                     placeholder="Password"
                 />
-                <p className="text-red-600 m-0 font-semibold text-lg text-left p-0">
+                <p className="text-red-600 m-0 font-semibold text-lg text-left p-0 w-full">
                     {errorMessage}
                 </p>
                 <button
