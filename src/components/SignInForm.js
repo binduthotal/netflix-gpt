@@ -15,7 +15,6 @@ const SignInForm = () => {
                 const user = userCredential.user;
             })
             .catch((error) => {
-                console.log(auth.user);
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setErrorMessage(errorMessage)

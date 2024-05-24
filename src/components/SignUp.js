@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
-import { set } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 

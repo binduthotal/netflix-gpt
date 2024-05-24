@@ -10,8 +10,13 @@ import useTvArrivingTodat from "../hooks/useTvArrivingTodat";
 import useTVOnTheAir from "../hooks/useTVOnTheAir";
 import useTvPopular from "../hooks/useTvPopular";
 import useTvTopRated from "../hooks/useTvTopRated";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 
 const Browser = () => {
+
+  const toggleGpt = useSelector((store) => store.gptSearch.showGptSearch);
+
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
@@ -24,8 +29,14 @@ const Browser = () => {
   return (
     <div>
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      {toggleGpt ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };

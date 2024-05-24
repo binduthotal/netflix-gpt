@@ -31,6 +31,10 @@
 - Created Secondary container which contains MovieList and MovieCard
 - Fteched TMDB API of popular, trending etc and build movies list in secondary container.
 - Tailwind to make Movie list looks good.
+- Integrated GPT search using openGpt
+- Created GPt search button with gpt component which is toggled on gptsearch button click
+- created multilingiual options for gpt search bar and suggestions
+- For language updating created langSlice and update the language in the search bar accordingly
 
 # features
 - SignUp page

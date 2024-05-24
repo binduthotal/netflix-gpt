@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebaseConfig";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO_URL, USER_AVATAR } from "../utils/constants";
+import { LOGO_URL, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import {changeLanguage} from "../utils/langSlice"
 
 const Header = () => {
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const toggleGpt = useSelector((store) => store.gptSearch.showGptSearch);
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
@@ -22,11 +24,11 @@ const Header = () => {
       } else {
         // User is signed out
         dispatch(removeUser());
-        navigate("/")
+        navigate("/");
       }
     });
-    // unSubscribe when component unmounts 
-    return ()=>unSubscribe();
+    // unSubscribe when component unmounts
+    return () => unSubscribe();
   }, []);
 
   const handleSignOut = () => {
@@ -38,6 +40,15 @@ const Header = () => {
         // An error happened.
       });
   };
+
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguage = (e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
+
   return user === null ? (
     <div className="absolute bg-gradient-to-br from-black w-full h-full top-0 left-0 ">
       <div className="flex justify-between mx-28  items-center">
@@ -59,13 +70,26 @@ const Header = () => {
         <a href="/">
           <img className="w-40" src={LOGO_URL} alt="logo" />
         </a>
-        <div className="flex">
-          <img src={USER_AVATAR} alt="userIcon" className="mr-2 rounded-md" />
+        <div className="flex items-center">
+          {toggleGpt && (
+            <select className="bg-black bg-opacity-50 border border-solid border-white rounded-lg text-white px-4 py-1 mr-5 cursor-pointer" onChange={handleLanguage}>
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className="bg-purple-800 rounded-lg  px-3 py-1 text-white mr-5 font-semibold"
+            onClick={handleGptSearchClick}
+          >
+            {toggleGpt ? "Home" : "GPT Search"}
+          </button>
+          <img src={USER_AVATAR} alt="userIcon" className="mr-1 rounded-md" />
 
           {/* {displayName && ( */}
-          <p className="text-white font-bold mr-5">
-            Welcome {user.displayName}
-          </p>
+          <p className="text-white font-bold mr-5">{user.displayName}</p>
           {/* )} */}
           <div>
             <Link to="/login">
