@@ -66,7 +66,7 @@ const SignUp = () => {
     };
 
     return isSignupForm ? (
-        <div className=" absolute text-center  lg:mt-36 mx-auto right-0 left-0 px-10 pb-10 bg-black bg-opacity-75 sm:mt-16 sm:mb-[50px] sm:py-12 sm:px-16 sm:max-w-[450px]">
+        <div className="sm:absolute md:absolute w-full sm:w-full md:w-full lg:w-1/3 mx-auto left-0 right-0 md:mt-0 sm:top-16 md:top-14  lg:top-32 text-center px-10 pb-10 bg-black md:bg-black md:bg-opacity-75">
             <form onSubmit={(e) => e.preventDefault()} className="grid gap-5">
                 <label className="text-white text-3xl font-bold text-left py-9">
                     Sign up
@@ -114,31 +114,31 @@ const SignUp = () => {
             </form>
         </div>
     ) : (
-        <div className="absolute mx-auto left-0 right-0 lg:top-[30%] sm:top-[10%] ">
-            <div className=" grid justify-center px-20 py-10">
-                <h1 className="font-bold text-5xl text-white">
+        <div className="sm:absolute md:absolute mx-auto left-0 right-0 md:mt-0 sm:top-16 md:top-10  lg:top-32 text-center md:bg-transparent sm:bg-transparent md:bg-blackmd:bg-opacity-75 bg-black ">
+            <div className=" grid justify-center px-5 md:px-20 py-10">
+                <h1 className="font-bold text-2xl md:text-5xl text-white">
                     Unlimited movies, TV shows and more
                 </h1>
-                <div className="py-7">
-                    <h1 className="text-white font-medium text-3xl">
+                <div className="py-2 md:py-7">
+                    <h1 className="text-white font-medium text-xl md:text-3xl">
                         Watch anyWhere, cancel anytime
                     </h1>
                 </div>
                 <div className="pb-5">
-                    <h1 className="text-white font-medium text-2xl">
+                    <h1 className="text-white font-medium text-xl md:text-2xl">
                         Ready to watch? Enter your email to create or restart your
                         membership.
                     </h1>
-                    <div className="flex items-center justify-center py-5">
+                    <div className="md:flex sm:flex items-center md:justify-center sm:justify-center py-5">
                         <input
                             type="text"
                             placeholder="Email address"
-                            className="w-1/2 px-3 py-5 mr-3 bg-black opacity-70 text-white border border-solid border-gray-200 rounded-lg"
+                            className="w-full sm:w-1/3 md:w-1/2 px-2 py-3 sm:px-2 sm:py-3 md:px-3 md:py-5 mr-3 bg-black opacity-70 text-white border border-solid border-gray-200 rounded-lg"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <button
-                            className="bg-red-600 rounded-lg text-2xl text-white font-semibold px-5 py-4"
+                            className="bg-red-600 rounded-lg text-xl sm:px-2 sm:py-3  md:text-2xl text-white font-semibold px-2 py-3 md:px-5 md:py-4 sm:mt-0 md:mt-0 mt-6"
                             onClick={toggleForm}
                         >
                             Get Started

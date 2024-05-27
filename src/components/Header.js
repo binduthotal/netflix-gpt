@@ -51,8 +51,8 @@ const Header = () => {
   }
 
   return user === null ? (
-    <div className="fixed bg-gradient-to-br from-black w-full h-full top-0 left-0 ">
-      <div className="flex justify-between mx-28  items-center">
+    <div className="sm:absolute md:absolute bg-black sm:bg-gradient-to-b sm:from-black md:bg-gradient-to-b md:from-black w-full h-fit top-0 left-0 ">
+      <div className="flex justify-between mx-10 md:mx-28  items-center">
         <a href="/">
           <img className="w-48 " src={LOGO_URL} alt="logo" />
         </a>
@@ -66,16 +66,25 @@ const Header = () => {
       </div>
     </div>
   ) : (
-    <div className="fixed bg-gradient-to-b from-black w-full h-fit top-0 left-0 border-none ">
-      <div className="flex justify-between mx-16  items-center">
-        <a href="/">
-          <img className="w-40" src={LOGO_URL} alt="logo" />
-        </a>
+    <div className="absolute bg-gradient-to-b from-black w-full h-fit top-0 left-0 border-none ">
+      <div className="flex justify-evenly md:justify-between mx-2 my-1 md:mx-16  items-center text-center">
+        <div className="">
+          <a href="/">
+            <img className="w-40" src={LOGO_URL} alt="logo" />
+          </a>
+        </div>
         <div className="flex items-end">
           {toggleGpt && (
-            <select className="bg-black bg-opacity-50 border border-solid border-white rounded-lg text-white px-4 py-1 mr-5 cursor-pointer" onChange={handleLanguage}>
+            <select
+              className="bg-black bg-opacity-50 border border-solid border-white rounded-lg text-white px-4 py-1 mr-5 cursor-pointer"
+              onChange={handleLanguage}
+            >
               {SUPPORTED_LANGUAGES.map((lang) => (
-                <option className="bg-black text-white rounded-lg" key={lang.identifier} value={lang.identifier}>
+                <option
+                  className="bg-black text-white rounded-lg"
+                  key={lang.identifier}
+                  value={lang.identifier}
+                >
                   {lang.name}
                 </option>
               ))}
@@ -87,11 +96,16 @@ const Header = () => {
           >
             {toggleGpt ? "Home" : "GPT Search"}
           </button>
-          <img src={USER_AVATAR} alt="userIcon" className="mr-1 rounded-md" />
-
-          {/* {displayName && ( */}
-          <p className="text-white font-bold mr-9">{user.displayName}</p>
-          {/* )} */}
+          {!toggleGpt && (
+            <div className="flex">
+              <img
+                src={USER_AVATAR}
+                alt="userIcon"
+                className="mr-1 rounded-md"
+              />
+              <p className="text-white font-bold mr-9">{user.displayName}</p>
+            </div>
+          )}
           <div>
             <Link to="/login">
               <button

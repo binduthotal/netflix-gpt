@@ -47,7 +47,7 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-10">
       <div className="fixed -z-10 w-screen h-screen">
         <img
           src={BACKGROUND_IMG_URL}
@@ -56,7 +56,7 @@ const GptSearchBar = () => {
         />
       </div>
       <form
-        className="mt-[9%] text-center bg-black w-1/2 grid grid-cols-12"
+        className="mt-[20%] md:mt-[9%] text-center bg-black w-full md:w-1/2 grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input

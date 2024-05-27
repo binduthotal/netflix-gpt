@@ -18,11 +18,11 @@ const SignInForm = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setErrorMessage(errorMessage)
-                
+
             });
     };
     return (
-        <div className="absolute lg:mt-36 mx-auto right-0 left-0 px-14 pb-5 bg-black bg-opacity-75 sm:mt-16 sm:mb-[50px] sm:py-12 sm:px-16 max-w-[450px] ">
+        <div className="absolute w-full sm:w-full md:w-full lg:w-1/3 mx-auto left-0 right-0 md:mt-0 md:top-14  lg:top-32 text-center px-10 pb-10 bg-black md:bg-opacity-75">
             <form className="grid gap-5" onSubmit={(e) => e.preventDefault()}>
                 <label className="text-white text-3xl font-bold text-left py-9">
                     Sign In
@@ -52,7 +52,9 @@ const SignInForm = () => {
                 <button className="bg-gray-600 bg-opacity-65 text-white font-semibold px-5 py-2 rounded-lg">
                     Use a sign-in code
                 </button>
-                <h1 className="text-white text-lg hover:underline">Forgot password?</h1>
+                <h1 className="text-white text-lg hover:underline">
+                    Forgot password?
+                </h1>
                 <div className="text-left px-2 flex items-center">
                     <input type="checkbox" className="size-5 mr-2" />
                     <label className="text-white text-lg">Remember me?</label>
