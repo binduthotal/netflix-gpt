@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { BACKGROUND_IMG_URL, options } from "../utils/constants";
 import lang from "../utils/langConstants";
 import { useDispatch, useSelector } from "react-redux";
-import openai from "../utils/openai";
 import genAI from "../utils/geminiai";
 import { addGptMovieResults } from "../utils/gptSlice";
 
