@@ -4,7 +4,6 @@ import lang from "../utils/langConstants";
 import { useDispatch, useSelector } from "react-redux";
 import openai from "../utils/openai";
 import genAI from "../utils/geminiai";
-import useSearchMovie from "../hooks/useSearchMovie";
 import { addGptMovieResults } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
@@ -37,6 +36,10 @@ const GptSearchBar = () => {
     const response = await result.response;
     const text = response.text();
     if (!text) return null;
+    // const chatCompletion = await openai.chat.completions.create({
+    //   messages: [{ role: "user", content: gptQuery }],
+    //   model: "gpt-3.5-turbo",
+    // });
 
     const geminiMovieResults = text.split(",");
     const promiseArray = geminiMovieResults.map((movie) => SearchTmdbMovies(movie));

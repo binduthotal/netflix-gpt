@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TV_ON_THE_AIR, options } from "../utils/constants";
 import { addTvOnTheAir } from "../utils/movieSlice";
 
 const useTVOnTheAir = () => {
+
+  const tvOnAir = useSelector((store) => store.movies.tvOnTheAir);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getTvOnTheAir();
+      !tvOnAir && getTvOnTheAir();
   }, []);
 
   const getTvOnTheAir = async () => {
