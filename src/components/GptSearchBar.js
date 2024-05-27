@@ -28,18 +28,18 @@ const GptSearchBar = () => {
       "Act as a movie recommendation system and suggest some movie names for the query :" +
       searchText.current.value +
       ", give only 5 movie names, comma seperated";
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = gptQuery;
+    // const prompt = gptQuery;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
-    if (!text) return null;
-    // const chatCompletion = await openai.chat.completions.create({
-    //   messages: [{ role: "user", content: gptQuery }],
-    //   model: "gpt-3.5-turbo",
-    // });
+    // const result = await model.generateContent(prompt);
+    // const response = await result.response;
+    // const text = response.text();
+    // if (!text) return null;
+    const text = await openai.chat.completions.create({
+      messages: [{ role: "user", content: gptQuery }],
+      model: "gpt-3.5-turbo",
+    });
 
     const geminiMovieResults = text.split(",");
     const promiseArray = geminiMovieResults.map((movie) => SearchTmdbMovies(movie));
