@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebaseConfig";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO_URL, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { clearGptMovieResults, toggleGptSearchView } from "../utils/gptSlice";
 import {changeLanguage} from "../utils/langSlice"
 
 const Header = () => {
@@ -43,6 +43,7 @@ const Header = () => {
 
   const handleGptSearchClick = () => {
     dispatch(toggleGptSearchView());
+    dispatch(clearGptMovieResults())
   };
 
   const handleLanguage = (e) => {
@@ -50,7 +51,7 @@ const Header = () => {
   }
 
   return user === null ? (
-    <div className="absolute bg-gradient-to-br from-black w-full h-full top-0 left-0 ">
+    <div className="fixed bg-gradient-to-br from-black w-full h-full top-0 left-0 ">
       <div className="flex justify-between mx-28  items-center">
         <a href="/">
           <img className="w-48 " src={LOGO_URL} alt="logo" />
@@ -65,16 +66,16 @@ const Header = () => {
       </div>
     </div>
   ) : (
-    <div className="absolute bg-gradient-to-b from-black w-full h-fit top-0 left-0 border-none ">
+    <div className="fixed bg-gradient-to-b from-black w-full h-fit top-0 left-0 border-none ">
       <div className="flex justify-between mx-16  items-center">
         <a href="/">
           <img className="w-40" src={LOGO_URL} alt="logo" />
         </a>
-        <div className="flex items-center">
+        <div className="flex items-end">
           {toggleGpt && (
             <select className="bg-black bg-opacity-50 border border-solid border-white rounded-lg text-white px-4 py-1 mr-5 cursor-pointer" onChange={handleLanguage}>
               {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
+                <option className="bg-black text-white rounded-lg" key={lang.identifier} value={lang.identifier}>
                   {lang.name}
                 </option>
               ))}
@@ -89,7 +90,7 @@ const Header = () => {
           <img src={USER_AVATAR} alt="userIcon" className="mr-1 rounded-md" />
 
           {/* {displayName && ( */}
-          <p className="text-white font-bold mr-5">{user.displayName}</p>
+          <p className="text-white font-bold mr-9">{user.displayName}</p>
           {/* )} */}
           <div>
             <Link to="/login">

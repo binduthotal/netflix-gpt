@@ -1,12 +1,16 @@
-import React from 'react';
-import MovieCard from './MovieCard';
+import React from "react";
+import MovieCard from "./MovieCard";
 
-const MovieList = ({title,movies}) => {
+const MovieList = ({ title, movies }) => {
   return (
-    <div className="bg-black px-5">
-      <div className=''>
+    <div className=" px-5">
+      <div className="">
         <h1 className="text-white text-xl py-4">{title}</h1>
-        <div className="flex overflow-x-scroll scroll-pb-1">
+        <div
+          className={`flex ${
+            movies?.length > 6 ? "overflow-x-scroll" : "overflow-x-hidden"
+          } `}
+        >
           <div className="flex ">
             {movies?.map((movie) => (
               <MovieCard key={movie.id} poster={movie.poster_path} />
@@ -16,6 +20,6 @@ const MovieList = ({title,movies}) => {
       </div>
     </div>
   );
-}
+};
 
 export default MovieList;

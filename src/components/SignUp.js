@@ -66,7 +66,7 @@ const SignUp = () => {
     };
 
     return isSignupForm ? (
-        <div className=" absolute text-center lg:mt-36 mx-auto right-0 left-0 px-10 pb-10 bg-black bg-opacity-75 sm:mt-16 sm:mb-[50px] sm:py-12 sm:px-16 sm:max-w-[450px]">
+        <div className=" absolute text-center  lg:mt-36 mx-auto right-0 left-0 px-10 pb-10 bg-black bg-opacity-75 sm:mt-16 sm:mb-[50px] sm:py-12 sm:px-16 sm:max-w-[450px]">
             <form onSubmit={(e) => e.preventDefault()} className="grid gap-5">
                 <label className="text-white text-3xl font-bold text-left py-9">
                     Sign up
@@ -114,7 +114,7 @@ const SignUp = () => {
             </form>
         </div>
     ) : (
-        <div className="absolute mx-auto left-0 right-0 lg:top-[30%] sm:top-[10%]">
+        <div className="absolute mx-auto left-0 right-0 lg:top-[30%] sm:top-[10%] ">
             <div className=" grid justify-center px-20 py-10">
                 <h1 className="font-bold text-5xl text-white">
                     Unlimited movies, TV shows and more

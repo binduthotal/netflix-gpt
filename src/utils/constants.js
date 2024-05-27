@@ -16,8 +16,7 @@ export const options = {
     },
 };
 
-export const NOWPLAYING_API =
-    "https://api.themoviedb.org/3/movie/now_playing";
+export const NOWPLAYING_API = "https://api.themoviedb.org/3/movie/now_playing";
 
 export const POPULAR_MOVIES_API = "https://api.themoviedb.org/3/movie/popular";
 
@@ -38,8 +37,13 @@ export const TV_TOP_RATED = "https://api.themoviedb.org/3/tv/top_rated";
 export const POSTER_IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 export const SUPPORTED_LANGUAGES = [
-  { identifier: "en", name: "English" },
-  { identifier: "hindi", name: "Hindi" },
-  { identifier: "telugu", name: "Telugu" },
-  { identifier: "spanish", name: "Spanish" },
+    { identifier: "en", name: "English" },
+    { identifier: "hindi", name: "Hindi" },
+    { identifier: "telugu", name: "Telugu" },
+    { identifier: "spanish", name: "Spanish" },
 ];
+
+export const OPENAI_API_KEY =
+  "sk-proj-eTfPLskQl57D2hJXzIxhT3BlbkFJr0WhhQjiWNNz2GNGLS4m";
+
+export const GEMINI_API_KEY = "AIzaSyAo23LBq5zfPejdSXy7zO7LgNgsnBnKMhc";

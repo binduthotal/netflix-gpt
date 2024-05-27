@@ -6,7 +6,7 @@ const LoginBackgroundIm = () => {
   const user = useSelector((store) => store.user);
   return (
     user === null && (
-      <div className="absolute top-0 w-full h-full">
+      <div className="fixed top-0 w-full h-full">
         <img
           src={BACKGROUND_IMG_URL}
           alt="BackGround"
