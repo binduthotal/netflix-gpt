@@ -51,7 +51,7 @@ const Header = () => {
   }
 
   return user === null ? (
-    <div className="sm:absolute md:absolute bg-black sm:bg-gradient-to-b sm:from-black md:bg-gradient-to-b md:from-black w-full h-fit top-0 left-0 ">
+    <div className="sm:absolute md:absolute bg-gradient-to-t from black sm:bg-gradient-to-b sm:from-black md:bg-gradient-to-b md:from-black w-full h-fit top-0 left-0 ">
       <div className="flex justify-between mx-10 md:mx-28  items-center">
         <a href="/">
           <img className="w-48 " src={LOGO_URL} alt="logo" />
@@ -73,7 +73,7 @@ const Header = () => {
             <img className="w-40" src={LOGO_URL} alt="logo" />
           </a>
         </div>
-        <div className="flex items-end">
+        <div className="flex items-center">
           {toggleGpt && (
             <select
               className="bg-black bg-opacity-50 border border-solid border-white rounded-lg text-white px-4 py-1 mr-5 cursor-pointer"
@@ -97,17 +97,17 @@ const Header = () => {
             {toggleGpt ? "Home" : "GPT Search"}
           </button>
           {!toggleGpt && (
-            <div className="flex">
+            <div className="flex items-baseline">
               <img
                 src={USER_AVATAR}
                 alt="userIcon"
                 className="mr-1 rounded-md"
               />
-              <p className="text-white font-bold mr-9">{user.displayName}</p>
+              <p className="text-white font-bold ml-1 mr-9">{user.displayName}</p>
             </div>
           )}
           <div>
-            <Link to="/login">
+            <Link to="/login" className="cursor-pointer">
               <button
                 className="bg-red-600 rounded-lg text-white px-3 py-1 font-semibold"
                 onClick={handleSignOut}

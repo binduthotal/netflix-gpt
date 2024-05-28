@@ -35,6 +35,8 @@
 - Created GPt search button with gpt component which is toggled on gptsearch button click
 - created multilingiual options for gpt search bar and suggestions
 - For language updating created langSlice and update the language in the search bar accordingly
+- Integrated geminiAi into search 
+- made app responsive
 
 # features
 - SignUp page
